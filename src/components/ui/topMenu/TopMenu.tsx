@@ -35,7 +35,7 @@ const TopMenu: FC<TopMenuProps> = ({}) => {
           Mujeres
         </Link>
         <Link
-          href="/category/kids"
+          href="/category/kid"
           className="m-2 p- rounded-md transition-all hover:bg-gray-100"
         >
           niños

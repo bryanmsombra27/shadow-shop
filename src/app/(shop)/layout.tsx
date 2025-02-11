@@ -1,4 +1,4 @@
-import { Sidebar, TopMenu } from "@/components";
+import { Footer, Sidebar, TopMenu } from "@/components";
 import { FC, ReactNode } from "react";
 
 interface layoutProps {
@@ -11,6 +11,8 @@ const layout: FC<layoutProps> = ({ children }) => {
       <Sidebar />
 
       <div className="px-0 sm:px-10">{children}</div>
+
+      <Footer />
     </main>
   );
 };
