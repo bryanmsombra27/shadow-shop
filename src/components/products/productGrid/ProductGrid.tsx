@@ -1,6 +1,7 @@
 import { Product } from "@/interfaces";
 import { FC } from "react";
 import ProductGridItem from "./ProductGridItem";
+// import { Product } from "@prisma/client";
 
 interface ProductGridProps {
   products: Product[];

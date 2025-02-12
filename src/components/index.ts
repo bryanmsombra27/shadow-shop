@@ -1,11 +1,12 @@
+export { default as Footer } from "./ui/footer/Footer";
 export { default as PageNotFound } from "./ui/notFound/PageNotFound";
+export { default as Pagination } from "./ui/pagination/Pagination";
 export { default as ProductGrid } from "./products/productGrid/ProductGrid";
 export { default as ProductGridItem } from "./products/productGrid/ProductGridItem";
-export { default as ProductSlideshow } from "./product/slideshow/ProductSlideshow";
 export { default as ProductMobileSlideshow } from "./product/slideshow/ProductMobileSlideshow";
+export { default as ProductSlideshow } from "./product/slideshow/ProductSlideshow";
 export { default as QuantitySelector } from "./product/quantitySelector/QuantitySelector";
 export { default as Sidebar } from "./ui/sidebar/Sidebar";
 export { default as SizeSelector } from "./product/sizeSelector/SizeSelector";
 export { default as Title } from "./ui/Title/Title";
 export { default as TopMenu } from "./ui/topMenu/TopMenu";
-export { default as Footer } from "./ui/footer/Footer";
