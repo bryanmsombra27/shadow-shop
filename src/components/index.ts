@@ -8,5 +8,6 @@ export { default as ProductSlideshow } from "./product/slideshow/ProductSlidesho
 export { default as QuantitySelector } from "./product/quantitySelector/QuantitySelector";
 export { default as Sidebar } from "./ui/sidebar/Sidebar";
 export { default as SizeSelector } from "./product/sizeSelector/SizeSelector";
+export { default as StockLabel } from "./product/stockLabel/StockLabel";
 export { default as Title } from "./ui/Title/Title";
 export { default as TopMenu } from "./ui/topMenu/TopMenu";

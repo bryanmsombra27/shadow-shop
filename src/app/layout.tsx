@@ -3,7 +3,10 @@ import "./globals.css";
 import { geistSans } from "@/config/fonts";
 
 export const metadata: Metadata = {
-  title: "Shadow Shop",
+  title: {
+    template: "%s - Shadow | shop",
+    default: "Home - Shadow | shop",
+  },
   description: "Tienda virtual de productos",
 };
 
