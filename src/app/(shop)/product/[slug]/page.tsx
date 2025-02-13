@@ -12,6 +12,8 @@ import { titleFont } from "@/config/fonts";
 import { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import { FC } from "react";
+import AddToCart from "./ui/AddToCart";
+import { formatCurrency } from "@/utils";
 
 interface pageProps {
   params: Params;
@@ -73,14 +75,8 @@ const page: FC<pageProps> = async ({ params }) => {
           {product.title}
         </h1>
 
-        <p className="text-lg mb-5">${product.price} </p>
-        <SizeSelector
-          availableSizes={product.sizes}
-          selectedSize={product.sizes[0]}
-        />
-        <QuantitySelector quantity={2} />
-
-        <button className="btn-primary my-5"> Agregar al carrito</button>
+        <p className="text-lg mb-5">{formatCurrency(product.price)} </p>
+        <AddToCart product={product} />
 
         <h3 className="font-bold text-sm">Descripcion</h3>
         <p className="font-light">{product.description}</p>

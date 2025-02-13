@@ -3,12 +3,14 @@ import clsx from "clsx";
 import { FC } from "react";
 
 interface SizeSelectorProps {
-  selectedSize: Size;
+  selectedSize?: Size;
   availableSizes: Size[];
+  onSizeChanged: (size: Size) => void;
 }
 const SizeSelector: FC<SizeSelectorProps> = ({
   selectedSize,
   availableSizes,
+  onSizeChanged,
 }) => {
   return (
     <div className="my-5 ">
@@ -16,6 +18,7 @@ const SizeSelector: FC<SizeSelectorProps> = ({
       <div className="flex ">
         {availableSizes.map((size) => (
           <button
+            onClick={() => onSizeChanged(size)}
             className={clsx("mx-2 hover:underline text-lg", {
               underline: size == selectedSize,
             })}

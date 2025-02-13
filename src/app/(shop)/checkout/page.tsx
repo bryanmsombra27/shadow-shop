@@ -1,5 +1,6 @@
 import { QuantitySelector, Title } from "@/components";
 import { initialData } from "@/seed/seed";
+import { formatCurrency } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
@@ -46,7 +47,7 @@ const page: FC<pageProps> = ({}) => {
 
                 <div>
                   <p>{product.title}</p>
-                  <p>${product.price} x 3</p>
+                  <p>{formatCurrency(product.price)} x 3</p>
                   <p className="font-bold">Subtotal: {product.price * 3}</p>
                 </div>
               </div>
