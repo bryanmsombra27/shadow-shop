@@ -8,13 +8,9 @@ interface layoutProps {
 const layout: FC<layoutProps> = async ({ children }) => {
   const session = await auth();
 
-  if (session?.user) redirect("/");
+  if (!session?.user) redirect("/auth/login?redirectTo=/checkout/address");
 
-  return (
-    <main className="flex justify-center">
-      <div className="w-full sm:w-[350px] px-10">{children}</div>
-    </main>
-  );
+  return <>{children}</>;
 };
 
 export default layout;

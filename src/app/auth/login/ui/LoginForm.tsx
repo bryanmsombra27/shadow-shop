@@ -1,22 +1,27 @@
 "use client";
 import { authenticate } from "@/actions";
-import { signIn } from "@/auth";
+import clsx from "clsx";
 import Link from "next/link";
-import { FC, FormEvent, useActionState, useState } from "react";
+// import { useRouter } from "next/navigation";
+import { FC, useActionState, useEffect } from "react";
+import { useFormStatus } from "react-dom";
 import { IoInformationOutline } from "react-icons/io5";
 
 interface LoginFormProps {}
 const LoginForm: FC<LoginFormProps> = ({}) => {
-  // const [state, dispatch] = useActionState(authenticate, null);
-  // const [state, dispatch] = useActionState(authenticate, null);
-
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [state, dispatch] = useActionState(authenticate, null);
+  // const router = useRouter();
+  //
+  useEffect(() => {
+    // if (state?.success) redirect("/");
+    // if (state?.success) router.replace("/");
+    if (state?.success) window.location.replace("/");
+  }, [state]);
 
   return (
     <>
       <form
-        action={authenticate}
+        action={dispatch}
         className="flex flex-col"
       >
         <label htmlFor="email">Correo electrónico</label>
@@ -32,17 +37,14 @@ const LoginForm: FC<LoginFormProps> = ({}) => {
           type="password"
           name="password"
         />
-        <div className="flex h-8 items-end space-x-1 bg mb-5">
-          <IoInformationOutline className="h-5  w-5  text-red-500" />
-          <p className=" text-red-500">Credenciales no son correctas</p>
-        </div>
+        {state?.error && (
+          <div className="flex h-8 items-end space-x-1 bg mb-5">
+            <IoInformationOutline className="h-5  w-5  text-red-500" />
+            <p className=" text-red-500">Credenciales no son correctas</p>
+          </div>
+        )}
 
-        <button
-          className="btn-primary"
-          type="submit"
-        >
-          Ingresar
-        </button>
+        <LoginButton />
 
         {/* divisor l ine */}
         <div className="flex items-center my-5">
@@ -59,6 +61,23 @@ const LoginForm: FC<LoginFormProps> = ({}) => {
         </Link>
       </form>
     </>
+  );
+};
+
+const LoginButton = () => {
+  const { pending } = useFormStatus();
+
+  return (
+    <button
+      // className="btn-primary"
+      className={clsx("btn-primary", {
+        "opacity-5 cursor-not-allowed pointer-events-none": pending,
+      })}
+      disabled={pending}
+      type="submit"
+    >
+      Ingresar
+    </button>
   );
 };
 

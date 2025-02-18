@@ -13,8 +13,8 @@ interface Params {
 }
 
 export default async function Home({ searchParams }: Props) {
-  const page = searchParams.page ? +searchParams.page : 1;
-
+  const search = await searchParams;
+  const page = search.page ? +search.page : 1;
   const { products, totalPages } = await getPaginatedProductsWithImages({
     page,
   });

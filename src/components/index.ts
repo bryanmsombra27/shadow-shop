@@ -11,3 +11,4 @@ export { default as SizeSelector } from "./product/sizeSelector/SizeSelector";
 export { default as StockLabel } from "./product/stockLabel/StockLabel";
 export { default as Title } from "./ui/Title/Title";
 export { default as TopMenu } from "./ui/topMenu/TopMenu";
+export { default as Provider } from "./provider/Provider";

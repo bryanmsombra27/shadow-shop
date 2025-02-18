@@ -27,7 +27,7 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
-  const slug = params.slug;
+  const slug = await params.slug;
 
   // fetch data
   const product = await getProductBySlug(slug);
@@ -47,7 +47,7 @@ export async function generateMetadata(
 }
 
 const page: FC<pageProps> = async ({ params }) => {
-  const { slug } = params;
+  const { slug } = await params;
   const product = await getProductBySlug(slug);
 
   if (!product) notFound();

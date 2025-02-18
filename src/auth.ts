@@ -41,8 +41,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         // regresar el usuario sin el password
         const { password: _, ...rest } = user;
 
-        console.log(rest, "USER CREDENTIALS");
-
         return rest;
       },
     }),
@@ -52,6 +50,19 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     newUser: "/auth/account",
   },
   callbacks: {
+    jwt: ({ token, user }) => {
+      if (user) {
+        token.data = user;
+      }
+
+      return token;
+    },
+    session: ({ session, token, user }) => {
+      session.user = token.data as any;
+
+      return session;
+    },
+
     signIn: async ({ credentials }) => {
       return true;
     },
