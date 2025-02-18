@@ -2,17 +2,22 @@ import prisma from "../lib/prisma";
 import { initialData } from "./seed";
 
 async function main() {
+  await prisma.user.deleteMany();
   await prisma.productImage.deleteMany();
   await prisma.product.deleteMany();
   await prisma.category.deleteMany();
 
   //   CATEGORIAS
-  const { categories, products } = initialData;
+  const { categories, products, users } = initialData;
 
   const categoriesData = categories.map((category) => ({ name: category }));
 
   await prisma.category.createMany({
     data: categoriesData,
+  });
+
+  await prisma.user.createMany({
+    data: users,
   });
 
   const categoriesDB = await prisma.category.findMany({
@@ -42,24 +47,6 @@ async function main() {
       data: ImageData,
     });
   });
-
-  //   productos
-  //   const formatedProducts = products.map((product) => {
-  //     const { type, images, ...rest } = product;
-
-  //     images.forEach(image =>{
-
-  //     })
-
-  //     return {
-  //       ...rest,
-  //       categoryId: categoriesMap[type],
-  //     };
-  //   });
-
-  //   await prisma.product.createMany({
-  //     data: formatedProducts,
-  //   });
 }
 
 (() => {
