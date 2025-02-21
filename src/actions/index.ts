@@ -6,3 +6,6 @@ export * from "./auth/register";
 export * from "./products/get-product-by-slug";
 export * from "./products/get-stock-by-slug";
 export * from "./products/product-pagination";
+export * from "./orders/placeOrder";
+export * from "./orders/getOrderById";
+export * from "./orders/getOrdersByUser";

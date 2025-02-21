@@ -11,6 +11,7 @@ interface Actions {
   updateProductQuantity: (product: CartProduct, quantity: number) => void;
   removeFromCart: (product: CartProduct) => void;
   getSummaryInformation: () => SummaryInfo;
+  clearCart: () => void;
 }
 
 type State = InitialState & Actions;
@@ -98,6 +99,11 @@ export const useCartStore = create<State>()(
           tax,
           itemsInCart,
         };
+      },
+      clearCart: () => {
+        set({
+          cart: [],
+        });
       },
     }),
 

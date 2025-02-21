@@ -50,12 +50,12 @@ const AddressForm: FC<AddressFormProps> = ({ countries, userStoreAddress }) => {
 
   const submit = async (data: FormInputs) => {
     const { rememberAddress, ...userAddress } = data;
-    setAddress(data);
+    setAddress(userAddress);
 
     if (rememberAddress) {
       await setUserAddress(userAddress, session.data?.user.id!);
     } else {
-      await deleteUserAddress(session.data?.user.id!);
+      // await deleteUserAddress(session.data?.user.id!);
     }
 
     router.push(`/checkout`);
