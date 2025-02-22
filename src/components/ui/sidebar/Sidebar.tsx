@@ -73,6 +73,7 @@ const Sidebar: FC<SidebarProps> = ({}) => {
         {isAuthenticated && (
           <Link
             href="/orders"
+            onClick={closeSideMenu}
             className="flex items-center mt-10 p-2  hover:bg-gray-100 rounded transition-all "
           >
             <IoTicketOutline size={30} />
@@ -120,6 +121,7 @@ const Sidebar: FC<SidebarProps> = ({}) => {
             </Link>
             <Link
               href="/orders"
+              onClick={closeSideMenu}
               className="flex items-center mt-10 p-2  hover:bg-gray-100 rounded transition-all "
             >
               <IoTicketOutline size={30} />

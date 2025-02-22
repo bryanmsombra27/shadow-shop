@@ -133,6 +133,7 @@ model Order {
   paidAt DateTime?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  transactionId String?
 
     //relaciones
     user User @relation(fields: [userId],references: [id])
@@ -142,6 +143,7 @@ model Order {
 
     // PARA PODER DEFINIR LA RELACION UNO A UNO
     orderAddress OrderAddress?
+    
 
 } 
 

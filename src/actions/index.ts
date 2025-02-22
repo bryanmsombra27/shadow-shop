@@ -9,3 +9,5 @@ export * from "./products/product-pagination";
 export * from "./orders/placeOrder";
 export * from "./orders/getOrderById";
 export * from "./orders/getOrdersByUser";
+export * from "./payments/setTransactionId";
+export * from "./payments/paypalCheckPayment";
