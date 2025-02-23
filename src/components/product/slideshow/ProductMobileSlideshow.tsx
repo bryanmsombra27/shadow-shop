@@ -16,6 +16,7 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "./slideshow.css";
 import Image from "next/image";
+import ProductImage from "../product-image/ProductImage";
 interface ProductMobileSlideshowProps {
   images: string[];
   title: string;
@@ -45,8 +46,8 @@ const ProductMobileSlideshow: FC<ProductMobileSlideshowProps> = ({
       >
         {images.map((image) => (
           <SwiperSlide key={image}>
-            <Image
-              src={`/products/${image}`}
+            <ProductImage
+              src={image}
               alt={title}
               width={600}
               height={500}

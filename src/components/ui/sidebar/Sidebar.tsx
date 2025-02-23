@@ -113,14 +113,15 @@ const Sidebar: FC<SidebarProps> = ({}) => {
         {session?.user.role == "admin" && (
           <>
             <Link
-              href="/"
+              href="/admin/products"
+              onClick={closeSideMenu}
               className="flex items-center mt-10 p-2  hover:bg-gray-100 rounded transition-all "
             >
               <IoShirtOutline size={30} />
               <span className="ml-3 text-xl">Productos</span>
             </Link>
             <Link
-              href="/orders"
+              href="/admin/orders"
               onClick={closeSideMenu}
               className="flex items-center mt-10 p-2  hover:bg-gray-100 rounded transition-all "
             >
@@ -128,7 +129,8 @@ const Sidebar: FC<SidebarProps> = ({}) => {
               <span className="ml-3 text-xl">Ordenes</span>
             </Link>
             <Link
-              href="/"
+              href="/admin/users"
+              onClick={closeSideMenu}
               className="flex items-center mt-10 p-2  hover:bg-gray-100 rounded transition-all "
             >
               <IoPeopleOutline size={30} />

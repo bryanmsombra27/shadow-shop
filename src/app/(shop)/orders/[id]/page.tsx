@@ -1,5 +1,5 @@
 import { getOrderbyId } from "@/actions";
-import { OrderStatus, PayPalButton, Title } from "@/components";
+import { OrderStatus, PayPalButton, ProductImage, Title } from "@/components";
 import { Order } from "@/interfaces";
 import { formatCurrency } from "@/utils";
 import Image from "next/image";
@@ -36,8 +36,8 @@ const page: FC<pageProps> = async ({ params }) => {
                 key={`${productOrder.product.slug}-${index}`}
                 className="flex mb-5"
               >
-                <Image
-                  src={`/products/${productOrder.product.ProductImage[0].url}`}
+                <ProductImage
+                  src={productOrder.product.ProductImage[0]?.url}
                   width={100}
                   height={100}
                   style={{

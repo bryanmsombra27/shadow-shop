@@ -14,3 +14,4 @@ export { default as TopMenu } from "./ui/topMenu/TopMenu";
 export { default as Providers } from "./provider/Providers";
 export { default as PayPalButton } from "./paypal/PayPalButton";
 export { default as OrderStatus } from "./orders/OrderStatus";
+export { default as ProductImage } from "./product/product-image/ProductImage";

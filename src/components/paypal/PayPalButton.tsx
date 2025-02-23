@@ -58,11 +58,13 @@ const PayPalButton: FC<PayPalButtonProps> = ({ orderId, amount }) => {
 
   return (
     <>
-      <PayPalButtons
-        style={{ layout: "horizontal" }}
-        createOrder={createOrder}
-        onApprove={onApprove}
-      />
+      <div className="relative z-0">
+        <PayPalButtons
+          style={{ layout: "horizontal" }}
+          createOrder={createOrder}
+          onApprove={onApprove}
+        />
+      </div>
     </>
   );
 };
