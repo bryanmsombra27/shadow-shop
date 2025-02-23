@@ -10,7 +10,7 @@ import { FC } from "react";
 import { IoCardOutline } from "react-icons/io5";
 
 interface Props {
-  searchParams: Params;
+  searchParams: Promise<Params>;
 }
 
 interface Params {

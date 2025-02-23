@@ -16,7 +16,7 @@ import AddToCart from "./ui/AddToCart";
 import { formatCurrency } from "@/utils";
 
 interface pageProps {
-  params: Params;
+  params: Promise<Params>;
 }
 type Params = {
   slug: string;
@@ -27,7 +27,7 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
-  const slug = await params.slug;
+  const { slug } = await params;
 
   // fetch data
   const product = await getProductBySlug(slug);

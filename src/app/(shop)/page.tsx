@@ -5,7 +5,7 @@ import { Pagination, ProductGrid, Title } from "@/components";
 import { redirect } from "next/navigation";
 
 interface Props {
-  searchParams: Params;
+  searchParams: Promise<Params>;
 }
 
 interface Params {

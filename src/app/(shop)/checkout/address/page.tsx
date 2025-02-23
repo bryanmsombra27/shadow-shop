@@ -55,7 +55,7 @@ const page: FC<pageProps> = async ({}) => {
 
           <AddressForm
             countries={countries}
-            userStoreAddress={address!}
+            userStoreAddress={address as any}
           />
         </div>
       </div>

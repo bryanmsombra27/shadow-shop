@@ -5,15 +5,15 @@ import { FC } from "react";
 import ProductForm from "./ui/ProductForm";
 
 interface pageProps {
-  params: Params;
+  params: Promise<ParamsProducts>;
 }
 
-interface Params {
+interface ParamsProducts {
   slug: string;
 }
 
 const page: FC<pageProps> = async ({ params }) => {
-  const { slug } = params;
+  const { slug } = await params;
   const product = await getProductBySlug(slug);
   const data = await getAllCategories();
 

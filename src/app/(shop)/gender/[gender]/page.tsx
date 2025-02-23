@@ -7,8 +7,8 @@ import { redirect } from "next/navigation";
 import { FC } from "react";
 
 interface pageProps {
-  params: Param;
-  searchParams: SearchParams;
+  params: Promise<Param>;
+  searchParams: Promise<SearchParams>;
 }
 
 type Param = {
@@ -20,11 +20,12 @@ type SearchParams = {
 };
 
 const page: FC<pageProps> = async ({ params, searchParams }) => {
-  const { gender } = params;
-  const page = searchParams.page ? +searchParams.page : 1;
+  const { gender } = await params;
+  const { page } = await searchParams;
+  const actualPage = page ? +page : 1;
 
   const { products, totalPages } = await getPaginatedProductsWithImages({
-    page,
+    page: actualPage,
     gender: gender as Gender,
   });
 

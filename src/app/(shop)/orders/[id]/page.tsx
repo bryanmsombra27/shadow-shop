@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 import { FC } from "react";
 
 interface pageProps {
-  params: Params;
+  params: Promise<Params>;
 }
 
 type Params = {
