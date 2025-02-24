@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "prev:build": "npm run prisma:deploy && next build",
-    "build": "next build",
+    "build": "npm run prisma:deploy && next build",
+    "next:build": "next build",
     "start": "next start",
     "lint": "next lint",
     "seed": "ts-node src/seed/seed-db.ts",
